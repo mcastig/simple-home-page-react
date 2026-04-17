@@ -1,3 +1,4 @@
+import { asset } from '../../utils/asset';
 import './Hero.css';
 
 interface HeroProps {
@@ -33,19 +34,15 @@ export default function Hero({ isDark: _isDark }: HeroProps) {
 
           {/* CTA row */}
           <div className="hero__cta">
-            <a href="#" className="hero__btn-primary">
-              Get Started
-            </a>
-            <a href="#" className="hero__btn-demo">
-              Get live demo
-            </a>
+            <a href="#" className="hero__btn-primary">Get Started</a>
+            <a href="#" className="hero__btn-demo">Get live demo</a>
           </div>
 
           {/* Trust badges */}
           <ul className="hero__trust" role="list" aria-label="No commitments needed">
             <li className="hero__trust-item">
               <img
-                src="/Done_ring_round_fill.svg"
+                src={asset('Done_ring_round_fill.svg')}
                 alt=""
                 aria-hidden="true"
                 className="hero__trust-icon"
@@ -56,7 +53,7 @@ export default function Hero({ isDark: _isDark }: HeroProps) {
             </li>
             <li className="hero__trust-item">
               <img
-                src="/Done_ring_round_fill.svg"
+                src={asset('Done_ring_round_fill.svg')}
                 alt=""
                 aria-hidden="true"
                 className="hero__trust-icon"
@@ -71,8 +68,8 @@ export default function Hero({ isDark: _isDark }: HeroProps) {
         {/* Right column — hero image */}
         <div className="hero__image-col">
           <img
-            src="/hero-image-simple-homepage.png"
-            srcSet="/hero-image-simple-homepage@2x.png 2x"
+            src={asset('hero-image-simple-homepage.png')}
+            srcSet={`${asset('hero-image-simple-homepage@2x.png')} 2x`}
             alt="Alarado dashboard illustration"
             className="hero__image"
             width={580}

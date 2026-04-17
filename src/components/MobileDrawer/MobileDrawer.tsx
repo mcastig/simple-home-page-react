@@ -1,4 +1,5 @@
 import { useEffect, useCallback } from 'react';
+import { asset } from '../../utils/asset';
 import './MobileDrawer.css';
 
 interface MobileDrawerProps {
@@ -42,7 +43,7 @@ export default function MobileDrawer({
         onClick={onClose}
         aria-label="Close navigation menu"
       >
-        <img src="/close-button.svg" alt="" aria-hidden="true" width={20} height={20} />
+        <img src={asset('close-button.svg')} alt="" aria-hidden="true" width={20} height={20} />
       </button>
 
       <ul className="drawer__links" role="list">
@@ -63,7 +64,7 @@ export default function MobileDrawer({
           >
             <span className="theme-toggle__indicator" aria-hidden="true" />
             <img
-              src={isDark ? '/Moon_fill.svg' : '/Moon_fill_light.svg'}
+              src={isDark ? asset('Moon_fill.svg') : asset('Moon_fill_light.svg')}
               alt=""
               aria-hidden="true"
               className="theme-toggle__icon theme-toggle__icon--moon"
@@ -71,7 +72,7 @@ export default function MobileDrawer({
               height={14}
             />
             <img
-              src="/Sun_fill.svg"
+              src={asset('Sun_fill.svg')}
               alt=""
               aria-hidden="true"
               className="theme-toggle__icon theme-toggle__icon--sun"

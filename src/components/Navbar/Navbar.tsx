@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import MobileDrawer from '../MobileDrawer/MobileDrawer';
+import { asset } from '../../utils/asset';
 import './Navbar.css';
 
 interface NavbarProps {
@@ -20,7 +21,7 @@ export default function Navbar({ isDark, onToggleTheme }: NavbarProps) {
           {/* Logo */}
           <a href="/" className="navbar__logo" aria-label="Alarado home">
             <img
-              src={isDark ? '/logo-dark.svg' : '/logo-light.svg'}
+              src={isDark ? asset('logo-dark.svg') : asset('logo-light.svg')}
               alt="Alarado"
               width={141}
               height={24}
@@ -32,15 +33,9 @@ export default function Navbar({ isDark, onToggleTheme }: NavbarProps) {
             <a href="#" className="navbar__link navbar__link--active" aria-current="page">
               About us
             </a>
-            <a href="#" className="navbar__link">
-              Product
-            </a>
-            <a href="#" className="navbar__link">
-              Resource
-            </a>
-            <a href="#" className="navbar__link">
-              Contact
-            </a>
+            <a href="#" className="navbar__link">Product</a>
+            <a href="#" className="navbar__link">Resource</a>
+            <a href="#" className="navbar__link">Contact</a>
           </nav>
 
           {/* Desktop theme toggle */}
@@ -53,7 +48,7 @@ export default function Navbar({ isDark, onToggleTheme }: NavbarProps) {
             >
               <span className="theme-toggle__indicator" aria-hidden="true" />
               <img
-                src={isDark ? '/Moon_fill.svg' : '/Moon_fill_light.svg'}
+                src={isDark ? asset('Moon_fill.svg') : asset('Moon_fill_light.svg')}
                 alt=""
                 aria-hidden="true"
                 className="theme-toggle__icon theme-toggle__icon--moon"
@@ -61,7 +56,7 @@ export default function Navbar({ isDark, onToggleTheme }: NavbarProps) {
                 height={14}
               />
               <img
-                src="/Sun_fill.svg"
+                src={asset('Sun_fill.svg')}
                 alt=""
                 aria-hidden="true"
                 className="theme-toggle__icon theme-toggle__icon--sun"
@@ -79,12 +74,11 @@ export default function Navbar({ isDark, onToggleTheme }: NavbarProps) {
             aria-expanded={drawerOpen}
             aria-controls="mobile-drawer"
           >
-            <img src="/hamburger-button.svg" alt="" aria-hidden="true" width={24} height={24} />
+            <img src={asset('hamburger-button.svg')} alt="" aria-hidden="true" width={24} height={24} />
           </button>
         </div>
       </header>
 
-      {/* Mobile Drawer */}
       <MobileDrawer
         isOpen={drawerOpen}
         isDark={isDark}
