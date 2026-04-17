@@ -42,6 +42,12 @@ Dark/light mode is toggled manually (not via `prefers-color-scheme`). `App.tsx` 
 
 All static assets are in `public/` and referenced as absolute paths (`/logo-light.svg` etc.). There are no ES-module asset imports. Two tsconfig targets exist: `tsconfig.app.json` for the browser bundle and `tsconfig.node.json` for Vite config files.
 
+## Deployment
+
+Deployed to **GitHub Pages** at `https://mcastig.github.io/simple-home-page-react/`.
+
+The workflow in `.github/workflows/deploy.yml` triggers on every push to `main`: it runs tests, builds, then deploys `dist/` via `actions/deploy-pages`. The `base: '/simple-home-page-react/'` in `vite.config.ts` is required for asset paths to resolve correctly — do not remove it.
+
 ## Testing
 
 Tests use **Vitest** + **@testing-library/react** + **@testing-library/jest-dom** with a `jsdom` environment. Coverage is provided by `@vitest/coverage-v8`.

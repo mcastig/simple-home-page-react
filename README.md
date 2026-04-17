@@ -2,6 +2,8 @@
 
 A responsive marketing homepage built with React 19, TypeScript and Vite. Features a light/dark theme toggle, mobile slide-in navigation, and 96% unit test coverage.
 
+**Live:** [https://mcastig.github.io/simple-home-page-react/](https://mcastig.github.io/simple-home-page-react/)
+
 ## Tech Stack
 
 - **React 19** + **TypeScript**
@@ -89,3 +91,15 @@ All files  | 96.15% Stmts | 100% Branch | 92.85% Funcs | 100% Lines
 ```
 
 59 tests across `App`, `Navbar`, `Hero` and `MobileDrawer`.
+
+## Deployment
+
+The project deploys automatically to **GitHub Pages** on every push to `main` via `.github/workflows/deploy.yml`.
+
+The workflow:
+1. Installs dependencies (`npm ci`)
+2. Runs the full test suite (`npm run test:run`)
+3. Builds for production (`npm run build`)
+4. Uploads `dist/` and deploys via the official `actions/deploy-pages` action
+
+The Vite `base` is set to `/simple-home-page-react/` so all asset URLs resolve correctly on the Pages subdomain.
