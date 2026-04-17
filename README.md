@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# Alarado — Simple Homepage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive marketing homepage built with React 19, TypeScript and Vite. Features a light/dark theme toggle, mobile slide-in navigation, and 96% unit test coverage.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + **TypeScript**
+- **Vite 8** — dev server and bundler
+- **Vitest** + **Testing Library** — unit tests and code coverage
+- **Poppins** (Google Fonts) — typography
+- **CSS custom properties** — design tokens, no CSS framework
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev        # http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Command | Description |
+|---|---|
+| `npm run dev` | Start dev server with HMR |
+| `npm run build` | Type-check then bundle for production |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run ESLint |
+| `npm run test` | Run tests in watch mode |
+| `npm run test:run` | Run tests once |
+| `npm run test:coverage` | Run tests and generate coverage report |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
+
 ```
+src/
+├── components/
+│   ├── Hero/
+│   │   ├── Hero.tsx
+│   │   ├── Hero.css
+│   │   └── Hero.test.tsx
+│   ├── MobileDrawer/
+│   │   ├── MobileDrawer.tsx
+│   │   ├── MobileDrawer.css
+│   │   └── MobileDrawer.test.tsx
+│   └── Navbar/
+│       ├── Navbar.tsx
+│       ├── Navbar.css
+│       └── Navbar.test.tsx
+├── test/
+│   └── setup.ts
+├── App.tsx
+├── App.test.tsx
+├── index.css
+└── main.tsx
+public/
+├── logo-light.svg / logo-dark.svg
+├── hero-image-simple-homepage.png (+ @2x)
+├── Moon_fill.svg / Moon_fill_light.svg / Sun_fill.svg
+├── hamburger-button.svg / close-button.svg
+├── Done_ring_round_fill.svg
+└── favicon.ico
+```
+
+## Design Tokens
+
+Defined as CSS custom properties in `src/index.css`:
+
+| Token | Light | Dark |
+|---|---|---|
+| `--color-primary` | `#2A4DD0` | `#2A4DD0` |
+| `--color-secondary` | `#4CA154` | `#4CA154` |
+| `--color-heading` | `#111729` | `#F2F9FE` |
+| `--color-text` | `#223344` | `#F2F9FE` |
+| `--color-muted` | `#909193` | `#909193` |
+| `--color-bg` | `#F2F9FE` | `#111729` |
+
+## Features
+
+- **Light / Dark mode** — toggled via a pill button in the navbar; persists via `data-theme` on `<html>`
+- **Responsive layout** — two-column hero on desktop/tablet, stacked on mobile (≤767 px)
+- **Mobile navigation** — full-screen slide-in drawer with Escape key and backdrop close, body scroll lock
+- **Accessible** — semantic landmarks, `aria-current`, `aria-pressed`, `aria-hidden`, `aria-label` throughout
+- **Retina images** — hero image served with `srcset` for 2× displays
+
+## Test Coverage
+
+```
+All files  | 96.15% Stmts | 100% Branch | 92.85% Funcs | 100% Lines
+```
+
+59 tests across `App`, `Navbar`, `Hero` and `MobileDrawer`.
