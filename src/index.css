@@ -1,0 +1,103 @@
+/* ============================================================
+   CSS Custom Properties — Light Mode Defaults
+   ============================================================ */
+:root {
+  --color-primary: #2A4DD0;
+  --color-secondary: #4CA154;
+  --color-heading: #111729;
+  --color-text: #223344;
+  --color-muted: #909193;
+  --color-bg: #F2F9FE;
+  --color-white: #FFFFFF;
+
+  --font-family: 'Poppins', sans-serif;
+  --font-heading: 4.5rem;
+  --font-body: 1.125rem;
+  --font-button: 1rem;
+  --font-small: 0.875rem;
+}
+
+/* ============================================================
+   Dark Mode Overrides — toggled via [data-theme="dark"]
+   ============================================================ */
+[data-theme="dark"] {
+  --color-bg: #111729;
+  --color-heading: #F2F9FE;
+  --color-text: #F2F9FE;
+  --color-muted: #909193;
+}
+
+/* ============================================================
+   Global Reset & Base
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-body);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--font-family);
+  color: var(--color-heading);
+  transition: color 0.2s ease;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
